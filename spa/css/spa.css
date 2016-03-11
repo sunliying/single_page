@@ -1,0 +1,65 @@
+/*
+ * spa.css
+ * Root namespace style
+ * author sunly
+ */
+ /** Begin reset **/
+ *{
+ 	margin: 0px;
+ 	padding: 0px;
+ 	box-sizing: border-box;
+ }
+ ol,ul,dl{
+ 	list-style-position: inside;
+ }
+ h1,h2,h3,h4,h5,h6,p{
+ 	margin-bottom: 10px;
+ }
+ /** End reset **/
+ /** begin standerd selectors **/
+ body{
+ 	font: 16px/20px 'microsoft yahei',Arial,'youyuan';
+ 	color: #444;
+ 	background-color: #888;
+ }
+ a:link,a:visited{
+ 	color: inherit;
+ }
+ a{
+ 	display: inline-block;
+ 	text-decoration: none;
+ }
+ a:hover{
+ 	text-decoration: underline;
+ }
+ strong{
+ 	font-weight: 800px;
+ 	color: #000;
+ }
+ /** end standard selectors **/
+ /** begin spa namespace selectors **/
+ #spa{
+ 	position: absolute;
+ 	top: 8px;
+ 	right: 8px;
+ 	left: 8px;
+ 	bottom: 8px;
+ 	/*min-height: 500px;*/
+ 	min-width: 500px;
+ 	overflow: hidden;
+ 	background-color: #eee;
+ 	border-radius: 0 8px 0 8px;
+ }
+ /** end spa namespace selectors **/
+ 
+ /** begin utility selectors **/
+ .spa-x-select{
+
+ }
+ .spa-x-clearfloat{
+ 	height: 0px !important;
+ 	float: none !important;
+ 	visibility: hidden !important;
+ 	clear: both !important;
+ }
+ /** end utility selectors **/

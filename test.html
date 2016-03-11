@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style type="text/css">
+		div{
+			border: 2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script type="text/javascript">
+		(function(){
+			var input = "    .....    sun...   ";
+			var div = document.getElementsByTagName('div')[0];
+			div.innerHTML = input.trim();
+			console.log(input.trim());
+		})();
+	</script>
+</body>
+</html>

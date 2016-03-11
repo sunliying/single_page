@@ -1,0 +1,106 @@
+/*
+* spa-shell-css
+* shell style
+* author sunly 
+*/
+.spa-shell-head,
+.spa-shell-head-logo,
+.spa-shell-head-login,
+.spa-shell-head-search,
+.spa-shell-main,
+.spa-shell-main-nav,
+.spa-shell-main-content,
+.spa-shell-foot,
+.spa-shell-chat,
+.spa-shell-modal {
+    position: absolute;
+    /*border: solid 2px #aaa;*/
+    box-sizing: border-box;
+}
+
+.spa-shell-head {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 40px;
+}
+
+.spa-shell-head-logo {
+    top: 4px;
+    left: 4px;
+    height: 32px;
+    width: 128px;
+    background-color: #ccc;
+}
+
+.spa-shell-head-search {
+    top: 4px;
+    right: 2px;
+    height: 32px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: #abc;
+}
+
+.spa-shell-main {
+    top: 40px;
+    bottom: 40px;
+    left: 0px;
+    right: 0px;
+}
+
+.spa-shell-main-nav,
+.spa-shell-main-content {
+    top: 0px;
+    bottom: 0px;
+}
+
+.spa-shell-main-nav {
+    width: 250px;
+    background-color: #eee;
+}
+
+.spa-shell-x-close,
+.spa-shell-main-nav {
+    width: 0px;
+}
+
+.spa-shell-main-content {
+    left: 250px;
+    right: 0px;
+    background-color: #ddd;
+}
+
+.spa-shell-foot {
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    height: 40px;
+    background-color: #aaa;
+}
+
+.spa-shell-chat {
+    height: 20px;
+    width: 300px;
+    bottom: 0px;
+    right: 20px;
+    background-color: #bfc;
+    z-index: 1000;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.spa-shell-chat:hover{
+    background-color: #8ca;
+}
+
+.spa-shell-modal {
+    height: 400px;
+    width: 300px;
+    top: 50%;
+    right: 50%;
+    margin-right: -150px;
+    margin-top: -200px;
+    border-radius: 4px;
+    background-color: #fff;
+    z-index: 1;
+}
