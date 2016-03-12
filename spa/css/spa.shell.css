@@ -11,7 +11,7 @@
 .spa-shell-main-nav,
 .spa-shell-main-content,
 .spa-shell-foot,
-.spa-shell-chat,
+/*.spa-shell-chat,*/
 .spa-shell-modal {
     position: absolute;
     /*border: solid 2px #aaa;*/
@@ -79,7 +79,7 @@
     background-color: #aaa;
 }
 
-.spa-shell-chat {
+/*.spa-shell-chat {
     height: 20px;
     width: 300px;
     bottom: 0px;
@@ -91,9 +91,10 @@
 }
 .spa-shell-chat:hover{
     background-color: #8ca;
-}
+}*/
 
 .spa-shell-modal {
+    display: none;
     height: 400px;
     width: 300px;
     top: 50%;
