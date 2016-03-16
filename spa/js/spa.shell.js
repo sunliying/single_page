@@ -11,6 +11,7 @@
  */
 /*global $ spa */
 spa.shell = (function(){
+	'use strict';
 //--------begin module scope variables------
 	var 
 	configMap = {
@@ -19,26 +20,29 @@ spa.shell = (function(){
 		},
 		main_html : String()
 		+ '<div class="spa-shell-head">'
-			+ '<div class="spa-shell-head-logo"></div>'
+			+ '<div class="spa-shell-head-logo">'
+				+'<h1>SPA</h1>'
+				+'<p>What is the meaning of life?</p>'
+			+'</div>'
 			+ '<div class="spa-shell-head-login"></div>'
-			+ '<div class="spa-shell-head-search"></div>'
 		+ '</div>'
 		+ '<div class="spa-shell-main">'
 			+ '<div class="spa-shell-main-nav"></div>'
 			+ '<div class="spa-shell-main-content"></div>'
 		+ '</div>'
-		+ '<div class="spa-shell-foot"></div>'
-		+ '<div class="spa-shell-modal"></div>',
+		+ '<div class="spa-shell-foot"></div>',
 		resize_interval: 200
 	},
 	stateMap = { 
 		$container: null,
 		resize_idto: undefined,	
-		anchor_map: {}
+		anchor_map: {},
+		canChat: true
 	},
 	jqueryMap = {},
 	setJqueryMap, initModule,copyAnchorMap,changeAnchor,
-	onResize,onAnchorChange,setChatAnchor;
+	onResize,onHashchange,setChatAnchor,
+	onLogin,onLogout,onTapAcct;
 //--------end module scope variables------------
 
 //--------begin utility methods---------
@@ -57,7 +61,9 @@ copyAnchorMap = function(){
 setJqueryMap = function(){
 	var $container = stateMap.$container;
 	jqueryMap = { 
-		$container : $container
+		$container : $container,
+		$acct: $container.find('.spa-shell-head-login'),
+		$nav: $container.find('.spa-shell-main-nav')
 		 };
 };
 //name: changeAnchor
@@ -81,6 +87,31 @@ changeAnchor = function(an_map){
 		bool_return = false;
 	}
 	return bool_return;
+};
+//name: onTapAcct
+// onTapAcct = function(event){
+// 	var user = spa.model.people.get_user(),
+// 		user_name,acct_text;
+// 		spa.login.pop_box.css({display: 'none'});
+// 	if (user.get_is_anon) {
+// 		if(!spa.login.login()){
+// 			user_name = spa.login.login();
+// 			spa.model.people.login(user_name);
+// 			acct_text = '...processing...';
+// 			jqueryMap.$acct.text(acct_text);
+// 		}
+// 	}else{
+// 		spa.model.people.logout();
+// 	}
+// 	return false;
+// };
+// name: onLogin
+onLogin = function(event,login_user){
+	jqueryMap.$acct.text(login_user.name);
+};
+// name: onLogout
+onLogout = function(event,logout_user){
+	jqueryMap.$acct.text('Please Sign-in');
 };
 //---------end DOM methods---------
 
@@ -157,13 +188,23 @@ initModule = function ($container){
 	stateMap.$container = $container;
 	$container.html( configMap.main_html );
 	setJqueryMap();
-	//config and initialize chat module
-	spa.chat.configModule({
-		set_chat_anchor: setChatAnchor
-		// chat_people_model: spa.model.people,
-		// chat_model: spa.model.chat
-	});
-	spa.chat.initModule(jqueryMap.$container);
+	if(stateMap.canChat){
+		//config and initialize chat module
+		spa.chat.configModule({
+			set_chat_anchor: setChatAnchor
+			// chat_people_model: spa.model.people,
+			// chat_model: spa.model.chat
+		});
+		spa.chat.initModule(jqueryMap.$container);
+		//init login module
+	}
+	spa.login.initModule(jqueryMap.$container);
+	
+	$.gevent.subscribe($container,'spa-login',onLogin);
+	$.gevent.subscribe($container,'spa-logout',onLogout);
+	jqueryMap.$acct.text('Please Sign-in');
+	// .bind('utab',onTapAcct);
+
 	$(window)
 	.bind('resize',onResize)
 	.bind('hashchange',onHashchange)

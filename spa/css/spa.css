@@ -13,12 +13,12 @@
  	list-style-position: inside;
  }
  h1,h2,h3,h4,h5,h6,p{
- 	margin-bottom: 10px;
+ 	margin-bottom: 6pt;
  }
  /** End reset **/
  /** begin standerd selectors **/
  body{
- 	font: 16px/20px 'microsoft yahei',Arial,'youyuan';
+ 	font: 10pt 'microsoft yahei',Arial,'youyuan';
  	color: #444;
  	background-color: #888;
  }
@@ -33,22 +33,23 @@
  	text-decoration: underline;
  }
  strong{
- 	font-weight: 800px;
+ 	font-weight: 800;
  	color: #000;
  }
  /** end standard selectors **/
  /** begin spa namespace selectors **/
  #spa{
  	position: absolute;
- 	top: 8px;
- 	right: 8px;
- 	left: 8px;
- 	bottom: 8px;
- 	/*min-height: 500px;*/
- 	min-width: 500px;
+ 	top: 0;
+ 	right: 0;
+ 	left: 0;
+ 	bottom: 0;
+ 	background-color: #fff;
+ 	min-height: 15em;
+ 	min-width: 35em;
  	overflow: hidden;
  	background-color: #eee;
- 	border-radius: 0 8px 0 8px;
+ 	border-radius: 0 0.5em 0 0.5em;
  }
  /** end spa namespace selectors **/
  

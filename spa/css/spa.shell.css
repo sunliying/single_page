@@ -6,15 +6,11 @@
 .spa-shell-head,
 .spa-shell-head-logo,
 .spa-shell-head-login,
-.spa-shell-head-search,
 .spa-shell-main,
 .spa-shell-main-nav,
 .spa-shell-main-content,
-.spa-shell-foot,
-/*.spa-shell-chat,*/
-.spa-shell-modal {
+.spa-shell-foot {
     position: absolute;
-    /*border: solid 2px #aaa;*/
     box-sizing: border-box;
 }
 
@@ -27,19 +23,34 @@
 
 .spa-shell-head-logo {
     top: 4px;
-    left: 4px;
-    height: 32px;
-    width: 128px;
-    background-color: #ccc;
+    left: 8px;
+    height: 34px;
+    width: 180px;
+    font: 28px/32px bold "Arial";
+    text-align: center;
+    border-radius: 3px;
 }
-
-.spa-shell-head-search {
+.spa-shell-head-logo h1  {
+    font: 800 22px/22px Arial,Helvetica;
+    margin: 0;
+}
+.spa-shell-head-logo p{
+    font: 800 10px/10px Arial,Helvetica;
+    margin: 0;
+}
+.spa-shell-head-login {
     top: 4px;
-    right: 2px;
+    right: 0;
     height: 32px;
-    width: 100px;
+    line-height: 32px;
+    width: 210px;
     border-radius: 10px;
-    background-color: #abc;
+    background-color: #888;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .spa-shell-main {
@@ -56,8 +67,9 @@
 }
 
 .spa-shell-main-nav {
-    width: 250px;
+    width: 400px;
     background-color: #eee;
+    z-index: 1;
 }
 
 .spa-shell-x-close,
@@ -66,7 +78,7 @@
 }
 
 .spa-shell-main-content {
-    left: 250px;
+    left: 400px;
     right: 0px;
     background-color: #ddd;
 }
@@ -77,31 +89,4 @@
     bottom: 0px;
     height: 40px;
     background-color: #aaa;
-}
-
-/*.spa-shell-chat {
-    height: 20px;
-    width: 300px;
-    bottom: 0px;
-    right: 20px;
-    background-color: #bfc;
-    z-index: 1000;
-    cursor: pointer;
-    border-radius: 4px;
-}
-.spa-shell-chat:hover{
-    background-color: #8ca;
-}*/
-
-.spa-shell-modal {
-    display: none;
-    height: 400px;
-    width: 300px;
-    top: 50%;
-    right: 50%;
-    margin-right: -150px;
-    margin-top: -200px;
-    border-radius: 4px;
-    background-color: #fff;
-    z-index: 1;
 }
