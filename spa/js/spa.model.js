@@ -216,7 +216,6 @@
  			send_mes = function(meg_text){
  				var msg_map,
  				sio = isFakeDate? spa.fake.mockSio:spa.data.getSio();
- 				console.log(stateMap.user ,chatee);
  				if (!sio) {
  					return false;
  				}
@@ -229,7 +228,6 @@
  					meg_text: meg_text,
  					dest_name: chatee.name
  				};
- 				console.log(msg_map);
  				_publish_updatechat([msg_map]);
  				sio.emit('send_mes',msg_map);
  				return true;

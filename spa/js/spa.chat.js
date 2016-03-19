@@ -238,8 +238,7 @@ spa.chat = (function(){
 				jqueryMap.$title.text('Chat');
 				return false;
 			}
-			jqueryMap.$listbox
-			.find('spa-chat-list-name')
+			jqueryMap.$people_name
 			.removeClass('spa-x-select')
 			.end()
 			.find('[data-id='+ arg_map.new_chatee.id+']')
@@ -274,7 +273,6 @@ spa.chat = (function(){
 			clearChat();
 		}
 		jqueryMap.$listbox.html(list_html);
-		$('.spa-chat-list-name').bind('click',onClickchatee);
 	};
 	onClickchatee = function(event){
 		var data_id = $(this).attr('data-id');
@@ -304,7 +302,13 @@ spa.chat = (function(){
 			}
 	};
 	onLogin = function(event,login_user){
+		//只需要在每次login的时候才会进行listChange事件，在setChatee的时候在需要改变chatee
+		//和变换样式即可
 		configMap.set_chat_anchor('open');
+		//在完全登录之后，要将list上的人员缓存在jQueryMap里面，否则再次点击的时候
+		//使用jqueryMap.$listbox.find('spa-chat-list-name')时会找不到
+		jqueryMap.$people_name = jqueryMap.$slider.find('.spa-chat-list-name');
+		jqueryMap.$people_name.bind('click',onClickchatee);
 	};
 	onLogout = function(event,logout_user){
 		configMap.set_chat_anchor('closed');
@@ -369,7 +373,6 @@ spa.chat = (function(){
 		$.gevent.subscribe($append_target,'spa-updatechat',onUpdatechat);
 		$.gevent.subscribe($append_target,'spa-listchange',onListchange);
 
-		jqueryMap.$listbox.bind('click',onListchange);
 		jqueryMap.$head.bind('click',onTapToggle);
 		jqueryMap.$send.bind('click',onSubmitMsg);
 		jqueryMap.$form.bind('submit',onSubmitMsg);

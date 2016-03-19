@@ -56,20 +56,10 @@ spa.fake = (function(){
 					callback_map.userupdate([person_map]);
 				},3000);
 			}
-			// if (message_type === 'updatechat'&& callback_map.updatechat) {
-			// 	setTimeout(function(){
-			// 		var user = spa.model.people.get_user();
-			// 		callback_map.updatechat([{
-			// 			dest_id: user.id,
-			// 			dest_name: user.name,
-			// 			sender_id: data.dest_id,
-			// 			meg_text: 'OK,that is fine enough,'+user.name
-			// 		}]);
-			// 	},2000);
-			// }
 			if (message_type === 'leavechat') {
 				delete callback_map.listchange;
 				delete callback_map.updatechat;
+				/*** 删除数组中元素的几种方式****/
 				// for (i = 0; i < peopleList.length; i++) {
 				// 	if (peopleList[i]._id === data) {
 				// 		peopleList.splice(i,i+1);
