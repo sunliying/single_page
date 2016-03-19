@@ -191,9 +191,9 @@ initModule = function ($container){
 	if(stateMap.canChat){
 		//config and initialize chat module
 		spa.chat.configModule({
-			set_chat_anchor: setChatAnchor
-			// chat_people_model: spa.model.people,
-			// chat_model: spa.model.chat
+			set_chat_anchor: setChatAnchor,
+			people_model: spa.model.people,
+			chat_model: spa.model.chat
 		});
 		spa.chat.initModule(jqueryMap.$container);
 		//init login module

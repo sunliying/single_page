@@ -8,6 +8,13 @@
  	margin: 0px;
  	padding: 0px;
  	box-sizing: border-box;
+ 	-webkit-user-select: none;
+ 	   -moz-user-select: none;
+ 	    -ms-user-select: none;
+ 	        user-select: none;
+ 	user-drag:none;
+ 	-webkit-tap-highlight-color: transparent;
+ 	-webkit-touch-callout: none;
  }
  ol,ul,dl{
  	list-style-position: inside;
@@ -15,6 +22,15 @@
  h1,h2,h3,h4,h5,h6,p{
  	margin-bottom: 6pt;
  }
+input,textarea, .spa-x-user-select{
+	-webkit-user-select: text;
+	   -moz-user-select: text;
+	    -ms-user-select: text;
+	        user-select: text;
+}
+input{
+	user-select: text;
+}
  /** End reset **/
  /** begin standerd selectors **/
  body{

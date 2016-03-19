@@ -15,7 +15,7 @@ spa.login = (function(){
 		+'	<form>'
 		+'		<div class="spa-login-name">'
 		+'			<label>your name:</label>'
-		+'			<input type="text" placeholder="Sunly"></input>'
+		+'			<input type="text" required="required" placeholder="Sunly"></input>'
 		+'		</div>'
 		+'      <p class="spa-login-warning"></p>'
 		+'		<div class="spa-login-button">'
@@ -39,7 +39,7 @@ spa.login = (function(){
 		jqueryMap = {
 			$acct: $acct,
 			$login: $login,
-			$input: $login.find('.spa-login-name input[type="button"]'),
+			$input: $login.find('.spa-login-name input[type="text"]'),
 			$ok : $login.find('.spa-login-ok'),
 			$cancel: $login.find('.spa-login-cancel'),
 			$warn: $login.find('.spa-login-warning')
@@ -48,31 +48,25 @@ spa.login = (function(){
 	onTapLogin = function(event){
 		var user = spa.model.people.get_user(),
 			user_name,acct_text;
-		user_name= 'sunliying' ||jqueryMap.$input.val();
+		user_name= jqueryMap.$input.val();
 		
-		if(user_name === undefined || !user_name.trim()){
-			jqueryMap.$ok.attr('disabled',true);
-			jqueryMap.$warn.text('name is required');
-			return false;
-		}
-		if (user.get_is_anon) {
-			spa.model.people.login(user_name);
-			console.log(user_name);
-			acct_text = '...processing...';
-			jqueryMap.$acct.text(acct_text);
-		}else{
-			spa.model.people.logout();
-		}
+		spa.model.people.login(user_name);
+		acct_text = '...processing...';
+		jqueryMap.$acct.text(acct_text);
+		
 		jqueryMap.$login.css({display: 'none'});
 		return false;
 	};
 	onCancel = function(){
-		console.log(jqueryMap.$login);
 		jqueryMap.$login.css({display: 'none'});
 	};
 	onShow = function(){
-		jqueryMap.$login.css({display: 'block'});	
-		console.log(jqueryMap.$login);
+		var user = spa.model.people.get_user();	
+		if (user.get_is_anon()) {
+			jqueryMap.$login.css({display: 'block'});	
+		}else{
+			spa.model.people.logout();
+		}
 	};
 	//-------------------END DOM METHODS-------------
 	//-------------------BEGIN PUBLIC METHODS-------------------
@@ -81,10 +75,10 @@ spa.login = (function(){
 		stateMap.$append_target = $append_target;
 		setJqueryMap();
 		jqueryMap.$login.css({display:'none'});
-		jqueryMap.$acct.bind('click',onShow);
-		console.log(jqueryMap.$acct);
+		jqueryMap.$acct.bind('utap.utap',onShow);
 		jqueryMap.$cancel.bind('click',onCancel);
 		jqueryMap.$ok.bind('click',onTapLogin);
+
 	};
 	//--------------------END PUBLIC METHODS--------------------
 	return {
