@@ -36,8 +36,7 @@ spa.shell = (function(){
 	stateMap = { 
 		$container: null,
 		resize_idto: undefined,	
-		anchor_map: {},
-		canChat: true
+		anchor_map: {}
 	},
 	jqueryMap = {},
 	setJqueryMap, initModule,copyAnchorMap,changeAnchor,
@@ -188,16 +187,20 @@ initModule = function ($container){
 	stateMap.$container = $container;
 	$container.html( configMap.main_html );
 	setJqueryMap();
-	if(stateMap.canChat){
-		//config and initialize chat module
-		spa.chat.configModule({
-			set_chat_anchor: setChatAnchor,
-			people_model: spa.model.people,
-			chat_model: spa.model.chat
-		});
-		spa.chat.initModule(jqueryMap.$container);
-		//init login module
-	}
+	//config and initialize chat module
+	spa.chat.configModule({
+		set_chat_anchor: setChatAnchor,
+		people_model: spa.model.people,
+		chat_model: spa.model.chat
+	});
+	spa.chat.initModule(jqueryMap.$container);
+	//configurate and initialize avatr moudle 
+	spa.avtr.configModule({
+		people_model: spa.model.people,
+		chat_model: spa.model.chat
+	});
+	spa.avtr.initModule(jqueryMap.$nav);	
+	//init login module
 	spa.login.initModule(jqueryMap.$container);
 	
 	$.gevent.subscribe($container,'spa-login',onLogin);

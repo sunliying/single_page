@@ -109,7 +109,7 @@
  				stateMap.user = makePerson({
  					name: name,
  					cid: makeCid(),
- 					css_map: {top: 25,left: 25,'background-color': '#8f8'}
+ 					css_map: {top: 20,left: 120,'background-color': '#8f8'}
  				});
 
  				sio.on('userupdate',updateUser);
@@ -245,6 +245,7 @@
 	 				}
  				}
  				$.gevent.publish('spa-setchatee',{new_chatee: new_chatee,old_chatee: chatee});
+ 				$.gevent.publish('spa-setchateeAvtr',{new_chatee: new_chatee,old_chatee: chatee});
  				chatee = new_chatee;
  				return true;
  			};

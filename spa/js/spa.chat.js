@@ -69,7 +69,7 @@ spa.chat = (function(){
 	scollChat,writeChat,writeAlert,clearChat,
 	setPxSizes,removeSlider,handleResize,
 	onTapToggle,onSubmitMsg,onTapList,onSetchatee,onUpdatechat,
-	onListchange,onLogin,onClickchatee,onLogout;
+	onListchange,onLogin,onLogout;
 	//---------------END MODULE SCOPE VARIABLES----------------
 	//---------------BEGIN DOM METHODS------------------------
 	setJqueryMap = function(){
@@ -216,12 +216,13 @@ spa.chat = (function(){
 		return false;
 	};
 	onTapList = function(event){
-		var $tapped = $(event.elem_target),chatee_id;
+		var $tapped = $(this),chatee_id;
+		console.log($tapped);
 		if (! $tapped.hasClass('spa-chat-list-name')) {
 			return false;
 		}
 		chatee_id = $tapped.attr('data-id');
-		if (chatee_id) {return false;}
+		if (!chatee_id) {return false;}
 		configMap.chat_model.set_chatee(chatee_id);
 		return false;
 	};
@@ -274,10 +275,6 @@ spa.chat = (function(){
 		}
 		jqueryMap.$listbox.html(list_html);
 	};
-	onClickchatee = function(event){
-		var data_id = $(this).attr('data-id');
-		configMap.chat_model.set_chatee(data_id);
-	};
 	onUpdatechat = function(event,msg_map){
 		//on... 事件的第一个参数都是event
 		var is_user,
@@ -308,7 +305,7 @@ spa.chat = (function(){
 		//在完全登录之后，要将list上的人员缓存在jQueryMap里面，否则再次点击的时候
 		//使用jqueryMap.$listbox.find('spa-chat-list-name')时会找不到
 		jqueryMap.$people_name = jqueryMap.$slider.find('.spa-chat-list-name');
-		jqueryMap.$people_name.bind('click',onClickchatee);
+		jqueryMap.$people_name.bind('click',onTapList);
 	};
 	onLogout = function(event,logout_user){
 		configMap.set_chat_anchor('closed');

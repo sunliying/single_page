@@ -54,7 +54,7 @@ spa.fake = (function(){
 					};
 					peopleList.push(person_map);
 					callback_map.userupdate([person_map]);
-				},3000);
+				},0);
 			}
 			if (message_type === 'leavechat') {
 				delete callback_map.listchange;
@@ -62,19 +62,18 @@ spa.fake = (function(){
 				/*** 删除数组中元素的几种方式****/
 				// for (i = 0; i < peopleList.length; i++) {
 				// 	if (peopleList[i]._id === data) {
-				// 		peopleList.splice(i,i+1);
+				// 		peopleList.splice(i,1);
 				// 	}
 				// }
 				peopleList.pop();
 			}
-			if (message_type === 'updateavatar'&& callback_map.listchange) {
+			if (message_type === 'updateavatar') {
 				for (i = 0; i < peopleList.length; i++) {
 					if (peopleList[i]._id === data.person_id) {
 						peopleList[i].css_map = data.css_map;
 						break;
 					}
 				}
-				callback_map.listchange([peopleList]);
 			}
 			if (message_type ==='send_mes'&&callback_map.updatechat) {
 				setTimeout(function(){

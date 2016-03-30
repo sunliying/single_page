@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <!-- <link rel="stylesheet" type="text/css" media="screen and (max-width: 500px)" href="./test.css"> -->
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<script src="../spa/node_modules/socket.io-client/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://localhost');
+  	socket.on('news', function (data) {
+    console.log(data);
+    socket.emit('my other event', { my: 'data' });
+  });
+</script>
+</body>
+
+</html>

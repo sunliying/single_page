@@ -60,8 +60,14 @@
 	color: #fff;
 	cursor: pointer;
 	border-style: none;
+	line-height: 2em;
+	display: inline-block;
 }
 .spa-login-ok:hover,.spa-login-cancel:hover{
 	background-color: #666;
 	color: #1ff;
+	box-shadow: 0 0 0.3em #1ff;
+}
+.spa-login-ok:hover,.spa-login-cancel:focus{
+	box-shadow: 0 0 0.2em #1ff;
 }

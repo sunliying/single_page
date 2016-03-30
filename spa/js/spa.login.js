@@ -19,8 +19,8 @@ spa.login = (function(){
 		+'		</div>'
 		+'      <p class="spa-login-warning"></p>'
 		+'		<div class="spa-login-button">'
-		+'			<input class="spa-login-ok" type="submit" value="OK"></input>'
-		+'			<input class="spa-login-cancel" type="button" value="CANCLE"></input>'
+		+'			<div class="spa-login-ok" >OK</div>'
+		+'			<div class="spa-login-cancel">CANCLE</div>'
 		+'		</div>'
 		+'	</form>'
 		+'</div>'
@@ -57,7 +57,7 @@ spa.login = (function(){
 		jqueryMap.$login.css({display: 'none'});
 		return false;
 	};
-	onCancel = function(){
+	onCancel = function(event){
 		jqueryMap.$login.css({display: 'none'});
 	};
 	onShow = function(){
@@ -67,6 +67,7 @@ spa.login = (function(){
 		}else{
 			spa.model.people.logout();
 		}
+
 	};
 	//-------------------END DOM METHODS-------------
 	//-------------------BEGIN PUBLIC METHODS-------------------
@@ -75,9 +76,9 @@ spa.login = (function(){
 		stateMap.$append_target = $append_target;
 		setJqueryMap();
 		jqueryMap.$login.css({display:'none'});
-		jqueryMap.$acct.bind('utap.utap',onShow);
-		jqueryMap.$cancel.bind('click',onCancel);
-		jqueryMap.$ok.bind('click',onTapLogin);
+		jqueryMap.$acct.bind('utap',onShow);
+		jqueryMap.$cancel.bind('utap',onCancel);
+		jqueryMap.$ok.bind('utap',onTapLogin);
 
 	};
 	//--------------------END PUBLIC METHODS--------------------
