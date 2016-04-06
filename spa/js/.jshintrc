@@ -1,9 +1,0 @@
-{
-	"eqeqeq": true,
-	"curly": true,
-	"devel": true,
-	"newcap": true,	
-	"white": true,
-	"browser": true,
-	"nomen": true
-}
