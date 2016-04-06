@@ -1,0 +1,82 @@
+/*
+ * spa.css
+ * Root namespace style
+ * author sunly
+ */
+ /** Begin reset **/
+ *{
+ 	margin: 0px;
+ 	padding: 0px;
+ 	box-sizing: border-box;
+ 	-webkit-user-select: none;
+ 	   -moz-user-select: none;
+ 	    -ms-user-select: none;
+ 	        user-select: none;
+ 	user-drag:none;
+ 	-webkit-tap-highlight-color: transparent;
+ 	-webkit-touch-callout: none;
+ }
+ ol,ul,dl{
+ 	list-style-position: inside;
+ }
+ h1,h2,h3,h4,h5,h6,p{
+ 	margin-bottom: 6pt;
+ }
+input,textarea, .spa-x-user-select{
+	-webkit-user-select: text;
+	   -moz-user-select: text;
+	    -ms-user-select: text;
+	        user-select: text;
+}
+input{
+	user-select: text;
+}
+ /** End reset **/
+ /** begin standerd selectors **/
+ body{
+ 	font: 10pt 'microsoft yahei',Arial,'youyuan';
+ 	color: #444;
+ 	background-color: #888;
+ }
+ a:link,a:visited{
+ 	color: inherit;
+ }
+ a{
+ 	display: inline-block;
+ 	text-decoration: none;
+ }
+ a:hover{
+ 	text-decoration: underline;
+ }
+ strong{
+ 	font-weight: 800;
+ 	color: #000;
+ }
+ /** end standard selectors **/
+ /** begin spa namespace selectors **/
+ #spa{
+ 	position: absolute;
+ 	top: 0;
+ 	right: 0;
+ 	left: 0;
+ 	bottom: 0;
+ 	background-color: #fff;
+ 	min-height: 15em;
+ 	min-width: 35em;
+ 	overflow: hidden;
+ 	background-color: #eee;
+ 	border-radius: 0 0.5em 0 0.5em;
+ }
+ /** end spa namespace selectors **/
+ 
+ /** begin utility selectors **/
+ .spa-x-select{
+
+ }
+ .spa-x-clearfloat{
+ 	height: 0px !important;
+ 	float: none !important;
+ 	visibility: hidden !important;
+ 	clear: both !important;
+ }
+ /** end utility selectors **/

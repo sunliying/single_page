@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SPA starter</title>
+	<!-- stylesheet -->
+	<link rel="stylesheet" type="text/css" href="css/spa.css">
+	<link rel="stylesheet" type="text/css" href="css/spa.chat.css">
+	<link rel="stylesheet" type="text/css" href="css/spa.shell.css">
+	<link rel="stylesheet" type="text/css" href="css/spa.avtr.css">
+	<link rel="stylesheet" type="text/css" href="css/spa.login.css">
+	
+	<!-- third-part javascript -->
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="./node_modules/taffydb/taffy.js"></script>
+	<script type="text/javascript" src="js/jq/jQuery_1.11.3.js"></script>
+	<script type="text/javascript" src="js/jq/jquery.uriAnchor.js"></script>
+	<script type="text/javascript" src="./node_modules/jquery.event.gevent/jquery.event.gevent.js"></script>
+	<script type="text/javascript" src="./node_modules/jquery.event.ue/jquery.event.ue.js"></script>
+	<!-- our javascript -->
+	<script type="text/javascript" src="js/spa.js"></script>
+	<script type="text/javascript" src="js/spa.util.js"></script>
+	<script type="text/javascript" src="js/spa.data.js"></script>
+	<script type="text/javascript" src="js/spa.fake.js"></script>
+	<script type="text/javascript" src="js/spa.model.js"></script>
+	<script type="text/javascript" src="js/spa.util_b.js"></script>
+	<script type="text/javascript" src="js/spa.shell.js"></script>
+	<script type="text/javascript" src="js/spa.chat.js"></script>
+	<script type="text/javascript" src="js/spa.login.js"></script>
+	<script type="text/javascript" src="js/spa.avtr.js"></script>
+	<script>
+		$(function () { spa.initModule( $('#spa') ); }) ;
+	</script>
+</head>
+<body>
+	<div id="spa"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>socket.html</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" id="script_a" src="/js/data.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('body').html(b);
+		});
+		var socket = io.connect();
+		socket.on('script',function(path){
+			$('#script_a').remove();
+			$('head').append(
+				'<script id = "script_a" src = "'+ path+'"><//script>'
+				);
+			$('body').html(b);
+		});
+	</script>
+</head>
+<body>
+	loading......
+</body>
+</html>

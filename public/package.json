@@ -1,0 +1,16 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery.event.gevent": "^1.1.4",
+    "jquery.event.ue": "^1.1.7",
+    "taffydb": "^2.7.2"
+  }
+}
